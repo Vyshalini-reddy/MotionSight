@@ -1,12 +1,4 @@
-"""
-Created on Apr 12, 2017
 
-@author: sgoldsmith
-
-Copyright (c) Steven P. Goldsmith
-
-All rights reserved.
-"""
 
 import unittest, sys, logging, codeferm.config, codeferm.mjpegclient
 
