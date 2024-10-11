@@ -1,12 +1,3 @@
-"""
-Created on Apr 12, 2017
-
-@author: sgoldsmith
-
-Copyright (c) Steven P. Goldsmith
-
-All rights reserved.
-"""
 
 import socket, base64, numpy, cv2, framebase
 from urllib.parse import urlparse
