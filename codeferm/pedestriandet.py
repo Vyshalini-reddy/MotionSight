@@ -1,12 +1,3 @@
-"""
-Created on Apr 16, 2017
-
-@author: sgoldsmith
-
-Copyright (c) Steven P. Goldsmith
-
-All rights reserved.
-"""
 
 import cv2, os, detectbase
 
