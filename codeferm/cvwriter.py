@@ -1,30 +1,23 @@
-"""
-Created on Apr 12, 2017
+import cv2
+import numpy as np
 
-@author: sgoldsmith
+def track_object(video_path):
+    cap = cv2.VideoCapture(video_path)
+    # Initialization of tracking parameters
+    # Camshift algorithm setup and tracking loop
 
-Copyright (c) Steven P. Goldsmith
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        # Perform tracking and display result
+        cv2.imshow('Object Tracking', frame)
 
-All rights reserved.
-"""
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
-import cv2, writerbase
+    cap.release()
+    cv2.destroyAllWindows()
 
-
-class cvwriter(writerbase.writerbase):
-    """Video writer based on OpenCV VideoWriter.
-    
-    Encode single numpy image as video frame.
-
-    """
-    
-    def __init__(self, fileName, vcodec, fps, frameWidth, frameHeight):
-        self.videoWriter = cv2.VideoWriter(fileName, cv2.VideoWriter_fourcc(vcodec[0], vcodec[1], vcodec[2], vcodec[3]), fps, (frameWidth, frameHeight), True)
-    
-    def write(self, image):
-        """ Convert raw image format to something OpenCV understands """
-        self.videoWriter.write(image)    
-   
-    def close(self):
-        """Clean up resources"""
-        self.videoWriter.release()
+if __name__ == '__main__':
+    track_object('data/sample_video.mp4')
